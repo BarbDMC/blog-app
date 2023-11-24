@@ -2,7 +2,7 @@
 import { user } from './fixtures/users';
 import { prismaTestContext } from './context/prismaContext';
 import { mockPrismaClient, mockBcrypt } from './mocks/functionsMocks';
-import { checkExistingUser, hashPassword } from '../src//services/signUpServices';
+import { checkExistingUser, createUser } from '../src//services/signUpServices';
 
 describe('Signup services', () => {
   describe('When checkExistingUser', () => {
@@ -26,10 +26,20 @@ describe('Signup services', () => {
     });
   });
 
-  describe('When hashPassword', () => {
-    it('should return a hashed password', async () => {
-      const hashedPassword = await hashPassword('1234567', mockBcrypt);
-      expect(hashedPassword).not.toBe('1234567');
+  describe('When createUser', () => {
+    it('should return a user', async () => {
+      const userData = {
+        email: 'test@example.com',
+        password: 'password123',
+        name: 'Test',
+        surname: 'User',
+        birthday: new Date('2000-01-01'),
+      };
+      
+      const user = await createUser(userData, mockPrismaClient, mockBcrypt);
+
+      expect(user).toBeDefined();
+      expect(user).toHaveProperty('idUser');
     });
   });
 });
