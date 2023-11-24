@@ -23,7 +23,7 @@ router.post('/signup', async (req: Request, res: Response) => {
       data: { email, password: hashedPassword, name, surname, birthday }
     }); //refactor this and use a service
 
-    res.status(201).json({ user: { id: user.idUser, email: user.email, name: user.name } });
+    res.status(201).send('User created.');
 
   } catch (error) {
     res.status(500).send('Something went wrong.');
