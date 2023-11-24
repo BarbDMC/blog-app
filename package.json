@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "seed": "prisma db seed",
+    "migrate": "prisma migrate dev --name init",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
     "dev": "nodemon --exec ts-node src/app.ts"
   },
@@ -29,8 +31,7 @@
     "nodemon": "^3.0.1",
     "prisma": "^5.6.0",
     "supertest": "^6.3.3",
-    "ts-jest": "^29.1.1",
-    "ts-node": "^10.9.1"
+    "ts-jest": "^29.1.1"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
@@ -38,18 +39,23 @@
     "@types/express": "^4.17.21",
     "@types/jest": "^29.5.8",
     "@types/jsonwebtoken": "^9.0.5",
+    "@types/node": "^20.10.0",
     "@types/sqlite3": "^3.1.11",
     "@types/supertest": "^2.0.16",
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
     "eslint": "^8.53.0",
+    "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.3.2"
   },
   "type": "module",
+  "prisma": {
+    "seed": "node --loader ts-node/esm prisma/seed.ts"
+  },  
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "testTimeout": 10000 //ask somebody how to improve this
+    "testTimeout": 10000
   }
 }

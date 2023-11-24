@@ -1,6 +1,5 @@
 
-export interface User {
-  idUser: number,
+export interface userInterface {
   email: string,
   name: string,
   middleName?: string,

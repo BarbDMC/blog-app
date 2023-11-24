@@ -1,4 +1,6 @@
 
+import { User } from '@prisma/client';
+import { userInterface } from '../interfaces/userInterface';
 import { bcryptInterface } from '../interfaces/bcryptInterface';
 import { PrismaClientInterface } from '../interfaces/prismaInterface';
 
@@ -12,4 +14,14 @@ export const hashPassword = async (password: string, bcrypt: bcryptInterface): P
   return await bcrypt.hash(password, 10);
 };
 
+export const createUser = async (body: userInterface, prisma: PrismaClientInterface, bcrypt: bcryptInterface): Promise<User> => {
+  const { email, password, name, surname, birthday } = body;
+  const hashedPassword = await hashPassword(password, bcrypt);
+
+  const user = await prisma.user.create({
+    data: { email, password: hashedPassword, name, surname, birthday }
+  });
+
+  return user;
+};
 

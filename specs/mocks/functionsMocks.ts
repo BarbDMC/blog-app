@@ -12,6 +12,9 @@ export const mockPrismaClient: PrismaClientInterface = {
         return Promise.resolve(user);
       }
       return null;
+    },
+    create: async (): Promise<User> => {
+      return Promise.resolve(user);
     }
   }
 };
