@@ -1,33 +1,8 @@
 
-import { User } from '@prisma/client';
-import { user } from './fixtures/user';
-import { bcryptInterface } from '../src/interfaces/bcryptInterface';
+import { mockPrismaClient, mockBcrypt } from './mocks/functionsMocks';
 import {checkUser, checkPassword} from '../src/services/loginServices';
-import { PrismaClientInterface } from '../src/interfaces/prismaInterface';
 
 describe('Login Services', () => {
-
-  const mockPrismaClient: PrismaClientInterface = {
-    user: {
-      findUnique: async ({ where: { email } }): Promise<User | null> => {
-        if (email === 'user@example.com') {
-          return Promise.resolve(user);
-        }
-        return null;
-      }
-    }
-  };
-
-  const mockBcrypt: bcryptInterface = {
-    compare: async (password): Promise<boolean> => {
-      if (password === '1234567') {
-        return Promise.resolve(true);
-      }
-      return Promise.resolve(false);
-    }
-  };
-
-
   describe('When checkUser', () => {
     it('should return an user if find one', async () => {
       const user = await checkUser('user@example.com', mockPrismaClient);

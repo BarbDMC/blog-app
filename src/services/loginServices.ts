@@ -16,6 +16,7 @@ export const generateToken = (email: string): string => {
   const payload = {
     email: email,
   };
+  
   const secretKey = process.env.TOKEN_SECRET as string;
   return jwt.sign(payload, secretKey, { expiresIn: '10800s' });
 };

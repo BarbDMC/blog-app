@@ -1,7 +1,7 @@
 
 import express from 'express';
 import request from 'supertest';
-import { user } from './fixtures/user';
+import { user } from './fixtures/users';
 import router from '../src/routes/loginRouter';
 import { prismaTestContext } from './context/prismaContext';
 
@@ -10,12 +10,12 @@ app.use(express.json());
 app.use(router);
 
 describe('When Login', () => {
-  beforeEach(async () => {
+  beforeAll(async () => {
     const db = await prismaTestContext().before();
     await db.user.create({data: user});
   });
 
-  afterEach(async () => {
+  afterAll(async () => {
     await prismaTestContext().after();
   });
 
