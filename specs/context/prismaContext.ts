@@ -8,7 +8,7 @@ export function prismaTestContext() {
   const prismaClient = new PrismaClient();
   return {
     async before() {
-      process.env.DATABASE_URL = "postgresql://postgres:new_password@localhost:5432/BlogAppTest?schema=public";
+      process.env.DATABASE_URL = 'your_test_database_url';
       execSync(`${prismaBinary} migrate dev --name create_user_table`, { env: process.env });
 
       return prismaClient;
