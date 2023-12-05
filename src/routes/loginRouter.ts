@@ -2,18 +2,24 @@
 import bcrypt from 'bcrypt';
 import { PrismaClient } from '@prisma/client';
 import express, { Request, Response } from 'express';
+import { validateUser } from '../validators/usersValidator';
 import { checkUser, checkPassword, generateToken } from '../services/loginServices';
 
 const router = express.Router();
 
 router.post('/login', async (req: Request, res: Response) => {
   const prismaClient = new PrismaClient();
+  const validationResult = validateUser(req.body);
+  
+  if (!validationResult.valid) {
+    return res.status(400).json({ errors: validationResult.errors });
+  }
+  
   const { email, password } = req.body;
-
   const user = await checkUser(email, prismaClient);
 
   if (!user) {
-    return res.status(400).send('User not found');
+    return res.status(404).send('User not found');
   }
 
   const isPasswordValid = await checkPassword(password, user.password, bcrypt);

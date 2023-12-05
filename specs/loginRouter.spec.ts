@@ -34,7 +34,7 @@ describe('When Login', () => {
       .post('/login')
       .send({ email: 'otheruser@example.com', password: 'other' });
 
-    expect(response.statusCode).toBe(400);
+    expect(response.statusCode).toBe(404);
     expect(response.text).toBe('User not found');
   });
 

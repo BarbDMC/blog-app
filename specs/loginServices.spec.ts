@@ -4,13 +4,13 @@ import {checkUser} from '../src/services/loginServices';
 
 describe('Login Services', () => {
   describe('When checkUser', () => {
-    it('should return an user if find one', async () => {
+    it('returns an user if find one', async () => {
       const user = await checkUser('user@example.com', mockPrismaClient);
       expect(user?.name).toBe('User');
       expect(user?.email).toBe('user@example.com');
     });
 
-    it('should return null if not find one', async () => {
+    it('returns null if the user is not found', async () => {
       const user = await checkUser('otherexample@email.com', mockPrismaClient);
       expect(user).toBeNull();
     });

@@ -9,10 +9,10 @@ const router = express.Router();
 
 router.post('/signup', async (req: Request, res: Response) => {
   const prismaClient = new PrismaClient();
-  const { email } = req.body;
-
+  
   try {
     const validationResult = validateUser(req.body);
+    const { email } = req.body;
     const existingUser = await checkExistingUser(email, prismaClient);
 
     if (!validationResult.valid) {
