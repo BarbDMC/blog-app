@@ -7,12 +7,8 @@ import { PrismaClientInterface } from '../../src/interfaces/prismaInterface';
 
 export const mockPrismaClient: PrismaClientInterface = {
   user: {
-    findUnique: async ({ where: { email } }): Promise<User | null> => {
-      if (email === 'user@example.com') {
-        return Promise.resolve(user);
-      }
-      return null;
-    },
+    findUnique: async ({ where: { email } }): Promise<User | null> => 
+      email === 'user@example.com' ? Promise.resolve(user) : null,
     create: async (): Promise<User> => {
       return Promise.resolve(user);
     }
