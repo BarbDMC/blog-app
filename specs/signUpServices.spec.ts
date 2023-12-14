@@ -33,7 +33,7 @@ describe('Signup services', () => {
         password: 'password123',
         name: 'Test',
         surname: 'User',
-        birthday: new Date('2000-01-01'),
+        birthday: '2000-01-01',
       };
       
       const user = await createUser(userData, mockPrismaClient, mockBcrypt);

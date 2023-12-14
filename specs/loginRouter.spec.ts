@@ -23,16 +23,16 @@ describe('When Login', () => {
   it('Should login with valid credentials', async () => {
     const response = await request(app)
       .post('/login')
-      .send({ email: 'user@example.com', password: '123456' });
+      .send({ email: 'user@example.com', password: '12345678' });
 
     expect(response.statusCode).toBe(200);
     expect(response.body.token).toBeDefined();
   });
 
-  it('should response status 400 if user does not exists', async () => {
+  it('should response status 404 if user does not exists', async () => {
     const response = await request(app)
       .post('/login')
-      .send({ email: 'otheruser@example.com', password: 'other' });
+      .send({ email: 'otheruser@example.com', password: 'otheruser' });
 
     expect(response.statusCode).toBe(404);
     expect(response.text).toBe('User not found');

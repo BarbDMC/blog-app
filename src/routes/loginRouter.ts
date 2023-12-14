@@ -2,14 +2,14 @@
 import bcrypt from 'bcrypt';
 import { PrismaClient } from '@prisma/client';
 import express, { Request, Response } from 'express';
-import { validateUser } from '../validators/usersValidator';
+import { validateUserLogin } from '../validators/usersValidator';
 import { checkUser, checkPassword, generateToken } from '../services/loginServices';
 
 const router = express.Router();
 
 router.post('/login', async (req: Request, res: Response) => {
   const prismaClient = new PrismaClient();
-  const validationResult = validateUser(req.body);
+  const validationResult = validateUserLogin(req.body);
   
   if (!validationResult.valid) {
     return res.status(400).json({ errors: validationResult.errors });

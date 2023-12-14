@@ -8,7 +8,7 @@ describe('validateUser', () => {
     password: 'strongpassword',
     name: 'John',
     surname: 'Doe',
-    birthday: new Date('1990-01-01')
+    birthday: '1990-01-01T00:00:00.000Z'
   };
 
   it('should validate a correct user object', () => {

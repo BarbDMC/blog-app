@@ -6,5 +6,5 @@ export interface userInterface {
   surname:  string,
   secondSurname?:  string,
   password: string,
-  birthday: Date
+  birthday: string
 };
