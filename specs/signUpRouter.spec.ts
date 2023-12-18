@@ -35,11 +35,11 @@ describe('When Signup', () => {
     expect(response.statusCode).toBe(400);
   });
 
-  it('should return 500 status if register with a invalid data', async () => {
+  it('should return 400 status if register with a invalid data', async () => {
     const response = await request(app)
       .post('/signup')
       .send({});
 
-    expect(response.statusCode).toBe(500);
+    expect(response.statusCode).toBe(400);
   });
 });
