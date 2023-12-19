@@ -19,7 +19,7 @@ describe('When Signup', () => {
     await prismaTestContext().after();
   });
 
-  it('should return 201 status if register with a non existing user', async () => {
+  it('returns 201 status if register with a non existing user', async () => {
     const response = await request(app)
       .post('/signup')
       .send(newUser);
@@ -27,7 +27,7 @@ describe('When Signup', () => {
     expect(response.statusCode).toBe(201);
   });
 
-  it('should return 400 status if register with a existing user', async () => {
+  it('returns 400 status if register with a existing user', async () => {
     const response = await request(app)
       .post('/signup')
       .send(user2);
@@ -35,7 +35,7 @@ describe('When Signup', () => {
     expect(response.statusCode).toBe(400);
   });
 
-  it('should return 400 status if register with a invalid data', async () => {
+  it('returns 400 status if register with a invalid data', async () => {
     const response = await request(app)
       .post('/signup')
       .send({});

@@ -20,7 +20,7 @@ describe('When Login', () => {
   });
 
 
-  it('Should login with valid credentials', async () => {
+  it('returns status 200 if login with valid credentials', async () => {
     const response = await request(app)
       .post('/login')
       .send({ email: 'user@example.com', password: '12345678' });
@@ -29,7 +29,7 @@ describe('When Login', () => {
     expect(response.body.token).toBeDefined();
   });
 
-  it('should response status 404 if user does not exists', async () => {
+  it('returns status 404 if user does not exists', async () => {
     const response = await request(app)
       .post('/login')
       .send({ email: 'otheruser@example.com', password: 'otheruser' });
@@ -38,7 +38,7 @@ describe('When Login', () => {
     expect(response.text).toBe('User not found');
   });
 
-  it('Should response status 400 with invalid credentials', async () => {
+  it('returns status 400 with invalid credentials', async () => {
     const response = await request(app)
       .post('/login')
       .send({ email: 'user@example.com', password: 'wrongpassword' });

@@ -11,12 +11,12 @@ describe('validateUser', () => {
     birthday: '1990-01-01T00:00:00.000Z'
   };
 
-  it('should validate a correct user object', () => {
+  it('returns true if the user object is correct', () => {
     const result = validateUser(user);
     expect(result.valid).toBe(true);
   });
 
-  it('should invalidate an user object with missing fields', () => {
+  it('returns false if the user object has missing fields', () => {
     const wrongUser = {
       email: 'test@example.com',
       password: 'strongpassword',
@@ -26,14 +26,14 @@ describe('validateUser', () => {
     expect(result.valid).toBe(false);
   });
 
-  it('should invalidate an user object with invalid email format', () => {
+  it('returns false if the user object has invalid email format', () => {
     user.email = 'invalid-email';
 
     const result = validateUser(user);
     expect(result.valid).toBe(false);
   });
 
-  it('should invalidate an user object if password does not have the minimum length', () => {
+  it('returns false if the user\'s password does not have the minimum length', () => {
     user.password = '123';
 
     const result = validateUser(user);

@@ -15,19 +15,19 @@ describe('Signup services', () => {
       await prismaTestContext().after();
     });
     
-    it('should return true if the user exist', async () => {
+    it('returns true if the user exist', async () => {
       const userExist = await checkExistingUser('user@example.com', mockPrismaClient);
       expect(userExist).toBe(true);
     });
 
-    it('should return false if the user does not exist', async () => {
+    it('returns false if the user does not exist', async () => {
       const userExist = await checkExistingUser('other@example.com', mockPrismaClient);
       expect(userExist).toBe(false);
     });
   });
 
   describe('When createUser', () => {
-    it('should return a user', async () => {
+    it('returns a user', async () => {
       const userData = {
         email: 'test@example.com',
         password: 'password123',
