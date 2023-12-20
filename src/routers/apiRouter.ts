@@ -5,7 +5,7 @@ import signUpRouter from '../routes/signUpRouter';
 
 const apiRouter = express.Router();
 
-apiRouter.use('/v1', loginRouter);
-apiRouter.use('/v1', signUpRouter);
+apiRouter.use(loginRouter);
+apiRouter.use(signUpRouter);
 
 export default apiRouter;
