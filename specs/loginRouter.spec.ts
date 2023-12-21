@@ -2,12 +2,12 @@
 import express from 'express';
 import request from 'supertest';
 import { user } from './fixtures/users';
-import router from '../src/routes/loginRouter';
+import loginRoutes from '../src/routes/loginRouter';
 import { prismaTestContext } from './context/prismaContext';
 
 const app = express();
 app.use(express.json());
-app.use(router);
+app.use(loginRoutes);
 
 describe('When Login', () => {
   beforeAll(async () => {

@@ -1,11 +1,11 @@
 
-import express from 'express';
-import loginRouter from '../routes/loginRouter';
-import signUpRouter from '../routes/signUpRouter';
+import { Router } from 'express';
+import loginRoutes from '../routes/loginRouter';
+import signUpRoutes from '../routes/signUpRouter';
 
-const apiRouter = express.Router();
+const apiRouter = Router();
 
-apiRouter.use(loginRouter);
-apiRouter.use(signUpRouter);
+apiRouter.use(loginRoutes);
+apiRouter.use(signUpRoutes);
 
 export default apiRouter;
