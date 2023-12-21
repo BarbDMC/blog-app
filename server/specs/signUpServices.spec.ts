@@ -2,7 +2,7 @@
 import { user } from './fixtures/users';
 import { prismaTestContext } from './context/prismaContext';
 import { mockPrismaClient, mockBcrypt } from './mocks/functionsMocks';
-import { checkExistingUser, createUser } from '../src//services/signUpServices';
+import { checkExistingUser, createUser } from '../src/services/signUpServices';
 
 describe('Signup services', () => {
   describe('When checkExistingUser', () => {

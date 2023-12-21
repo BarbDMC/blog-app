@@ -4,7 +4,7 @@ import { execSync } from "child_process";
 import {PrismaClient} from "@prisma/client";
 
 export function prismaTestContext() {
-  const prismaBinary = join(__dirname, "..", "..", "node_modules", ".bin", "prisma");
+  const prismaBinary = join(__dirname, "..", "..", "..", "node_modules", ".bin", "prisma");
   const prismaClient = new PrismaClient();
   return {
     async before() {

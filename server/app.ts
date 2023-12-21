@@ -1,6 +1,6 @@
 
 import express from 'express';
-import apiRouter from './routers/apiRouter';
+import apiRouter from './src/routers/apiRouter';
 
 const app = express();
 const port = 3000;
