@@ -7,7 +7,7 @@
     "seed": "prisma db seed",
     "migrate": "prisma migrate dev --name init",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
-    "dev": "nodemon --exec ts-node src/app.ts"
+    "dev": "nodemon --exec ts-node server/app.ts"
   },
   "repository": {
     "type": "git",
