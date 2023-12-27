@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.home-container-background {
+  @apply bg-gray-50;
+}
+
+.home-container-content {
+  @apply mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center;
+}
+
+.home-container-content--center {
+  @apply mx-auto max-w-xl text-center;
+}
+
+.home-container-content__title {
+  @apply text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl;
+}
+
+.home-container-content__description {
+  @apply mt-6 text-lg leading-8 text-gray-600;
+}
+
+.home-container-button {
+  @apply mt-8 flex flex-wrap justify-center gap-4;
+}
+
+.home-container-button__signup {
+  @apply block w-full rounded px-12 py-3 text-sm font-medium shadow focus:outline-none focus:ring sm:w-auto;
+}
+
+.home-container-button__login {
+  @apply block w-full bg-indigo-600 text-white rounded px-12 py-3 text-sm font-medium shadow focus:outline-none focus:ring sm:w-auto;
+}
