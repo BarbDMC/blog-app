@@ -1,59 +1,59 @@
 
 
-// import './styles.css';
+import './styles.css';
 import React from 'react';
 
 export const SignUp: React.FC = () => {
   return (
-    <section className="bg-gray-50 dark:bg-gray-900">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-          <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-              <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                  <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+    <section className="signup-background">
+      <div className="signup-container-align">
+          <div className="signup-container">
+              <div className="signup-container-content">
+                  <h1 className="signup-container-content__title">
                       Create and account
                   </h1>
-                  <form className="space-y-4 md:space-y-6" action="#">
-                      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
+                  <form className="signup-form">
+                      <div className="signup-form-section">
                         <div>
-                          <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                          <input className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" placeholder="First Name" required={true}/>
+                          <label htmlFor="name" className="signup-form-label">Name</label>
+                          <input className="signup-form-input" type="text" placeholder="First Name" required={true}/>
                         </div>
 
                         <div>
-                          <label htmlFor="middleName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Middle Name</label>
-                          <input className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" placeholder="Middle Name" />
+                          <label htmlFor="middleName" className="signup-form-label">Middle Name</label>
+                          <input className="signup-form-input" type="text" placeholder="Middle Name" />
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
+                      <div className="signup-form-section">
                         <div>
-                          <label htmlFor="surname" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Surname</label>
-                          <input className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" placeholder="Surname" required={true} />
+                          <label htmlFor="surname" className="signup-form-label">Surname</label>
+                          <input className="signup-form-input" type="text" placeholder="Surname" required={true} />
                         </div>
 
                         <div>
-                          <label htmlFor="secondSurname" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Second Surname</label>
-                          <input className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" placeholder="Second Surname" />
+                          <label htmlFor="secondSurname" className="signup-form-label">Second Surname</label>
+                          <input className="signup-form-input" type="text" placeholder="Second Surname" />
                         </div>
                       </div>
 
                       <div>
-                          <label htmlFor="birthday" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Birth Day</label>
-                          <input type="date" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required={true} />
+                          <label htmlFor="birthday" className="signup-form-label">Your Birth Day</label>
+                          <input type="date" name="email" id="email" className="signup-form-input" placeholder="name@company.com" required={true} />
                       </div>
 
                       <div>
-                          <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                          <input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required={true} />
+                          <label htmlFor="email" className="signup-form-label">Your email</label>
+                          <input type="email" name="email" id="email" className="signup-form-input" placeholder="name@company.com" required={true} />
                       </div>
                       <div>
-                          <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                          <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required={true} />
+                          <label htmlFor="password" className="signup-form-label">Password</label>
+                          <input type="password" name="password" id="password" placeholder="••••••••" className="signup-form-input" required={true} />
                       </div>
 
-                      <button type="submit" className="w-full text-white bg-blue-700 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Create an account</button>
-                      <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                          Already have an account? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here</a>
+                      <button type="submit" className="signup-form-button">Create an account</button>
+                      <p className="signup-login-message">
+                          Already have an account? <a href="#" className="signup-login-message__link">Login here</a>
                       </p>
                   </form>
               </div>
