@@ -4,6 +4,7 @@ import { PrismaClient } from '@prisma/client';
 import { Request, Response } from 'express';
 import { checkExistingUser, createUser } from '../services/signUpServices';
 import { validateUser } from '../validators/usersValidator';
+import { generateToken } from '../services/loginServices';
 
 
 export const userSignUp = async (req: Request, res: Response) => {
@@ -23,9 +24,10 @@ export const userSignUp = async (req: Request, res: Response) => {
       return res.status(400).send('Email already in use.');
     }
 
-    await createUser(req.body, prismaClient, bcrypt);
+    const newUser = await createUser(req.body, prismaClient, bcrypt);
 
-    res.status(201).send('User created.');
+    const token = generateToken(newUser.email);
+    res.status(201).json({message: 'User created.', token});
 
   } catch (error) {
     res.status(500).send('Something went wrong.');

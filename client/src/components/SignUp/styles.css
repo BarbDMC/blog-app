@@ -46,3 +46,7 @@
 .signup-login-message__link {
   @apply font-medium hover:underline;
 }
+
+.signup-error-message {
+  @apply text-sm font-medium text-red-500;
+}

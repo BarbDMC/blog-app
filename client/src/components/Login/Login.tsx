@@ -8,6 +8,14 @@ export const Login: React.FC = () => {
   const [password, setPassword] = useState<string>("");
   const { login, error, loading } = useLogin();
 
+  const handleEMailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  }
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  }
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -25,11 +33,11 @@ export const Login: React.FC = () => {
                 <form className="login-form" onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="email" className="login-form-label">Your email</label>
-                        <input type="email" name="email" id="email" className="login-form-input" placeholder="name@company.com" required={true} onChange={(e) => setEmail(e.target.value)} />
+                        <input type="email" name="email" id="email" className="login-form-input" placeholder="name@company.com" required={true} onChange={handleEMailChange} />
                     </div>
                     <div>
                         <label htmlFor="password" className="login-form-label">Password</label>
-                        <input type="password" name="password" id="password" className="login-form-input" placeholder="••••••••" required={true} onChange={(e) => setPassword(e.target.value)} />
+                        <input type="password" name="password" id="password" className="login-form-input" placeholder="••••••••" required={true} onChange={handlePasswordChange} />
                     </div>
                     <button type="submit" className="login-form-button" disabled={loading} >Sign in</button>
                     {error && <p className="login-error">{error}</p>}
@@ -43,5 +51,3 @@ export const Login: React.FC = () => {
     </section>
   )
 };
-
-//focus:ring-4 focus:outline-none focus:ring-primary-300 dark:focus:ring-blue-500 dark:focus:border-blue-500
