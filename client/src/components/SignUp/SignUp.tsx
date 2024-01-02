@@ -31,7 +31,8 @@ export const SignUp: React.FC = () => {
   }
 
   const handleBirthdayChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setBirthday(e.target.value);
+    const inputDate = new Date(e.target.value).toISOString();
+    setBirthday(inputDate);
   }
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -105,7 +106,7 @@ export const SignUp: React.FC = () => {
                           <input type="password" name="password" id="password" placeholder="••••••••" className="signup-form-input" required={true} onChange={handlePasswordChange} />
                       </div>
 
-                      <button type="submit" className="signup-form-button" >Create an account</button>
+                      <button type="submit" className="signup-form-button" disabled={loading}>Create an account</button>
 
                       {error && <p className="signup-error-message">{error}</p>}
 

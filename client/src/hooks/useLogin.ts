@@ -1,5 +1,5 @@
 
-import axios, {AxiosError} from 'axios';
+import axios from 'axios';
 import { useState } from 'react';
 
 export const useLogin = () => {
@@ -16,16 +16,17 @@ export const useLogin = () => {
         password
       });
 
-      console.log("🚀 ~ file: useLogin.ts:20 ~ login ~ response:", response)
       localStorage.setItem('token', response.data.token);
       setLoading(false);
 
     } catch (err) {
-      const axiosError = err as AxiosError;
+      const axiosError = err as any;
       
       if (axiosError.response) {
-        const errorMessage = axiosError.response.data as any;
-        setError(errorMessage.message);
+        const errorData = axiosError.response.data.errors as any[];
+        const errorMessage = errorData[0].message as string;
+
+        setError(errorMessage);
         setLoading(false);
       }
       
