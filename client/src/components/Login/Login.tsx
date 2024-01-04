@@ -1,9 +1,11 @@
 
 import './styles.css';
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { useLogin } from "src/hooks/useLogin";
 
 export const Login: React.FC = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const { login, error, loading } = useLogin();
@@ -19,7 +21,11 @@ export const Login: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    await login(email, password);
+    const loggedUser = await login(email, password);
+
+    if (loggedUser) {
+      navigate('/profile', { state: loggedUser });
+    }
   }
 
   return (

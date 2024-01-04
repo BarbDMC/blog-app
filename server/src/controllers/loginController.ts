@@ -27,5 +27,19 @@ export const userLogin = async (req: Request, res: Response) => {
   }
 
   const token = generateToken(user.email);
-  return res.status(200).json({ message: 'Login successful', token});
+  
+  return res.status(200).json(
+    { 
+      message: 'Login successful', 
+      token, 
+      user: {
+        name: user.name,
+        middleName: user.middleName,
+        surname: user.surname,
+        secondSurname: user.secondSurname,
+        email: user.email,
+        birthday: user.birthday,
+      }
+    }
+  );
 };

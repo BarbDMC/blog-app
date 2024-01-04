@@ -18,6 +18,8 @@ export const useLogin = () => {
 
       localStorage.setItem('token', response.data.token);
       setLoading(false);
+      
+      return response.data.user;
 
     } catch (err) {
       const axiosError = err as any;
