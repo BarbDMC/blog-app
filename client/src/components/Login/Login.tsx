@@ -1,7 +1,7 @@
 
 import './styles.css';
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLogin } from "src/hooks/useLogin";
 
 export const Login: React.FC = () => {
@@ -48,7 +48,7 @@ export const Login: React.FC = () => {
                     <button type="submit" className="login-form-button" disabled={loading} >Sign in</button>
                     {error && <p className="login-error">{error}</p>}
                     <p className="login-signup-message">
-                        Don’t have an account yet? <a href="#" className="login-signup-message__link">Sign up</a>
+                        Don’t have an account yet? <Link to="/signup" className="login-signup-message__link">Sign up</Link>
                     </p>
                 </form>
             </div>
