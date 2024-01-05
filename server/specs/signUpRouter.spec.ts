@@ -25,6 +25,8 @@ describe('When Signup', () => {
       .send(newUser);
 
     expect(response.statusCode).toBe(201);
+    expect(response.body.user).toBeDefined();
+    expect(response.body.token).toBeDefined();
   });
 
   it('returns 400 status if register with a existing user', async () => {

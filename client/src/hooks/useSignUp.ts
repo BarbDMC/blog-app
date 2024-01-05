@@ -16,7 +16,10 @@ export const useSignUp = () => {
 
       localStorage.setItem('token', response.data.token);
       setLoading(false);
-
+      
+      console.log("🚀 ~ file: useSignUp.ts:34 ~ signUp ~ response:", response)
+      return response.data.user;
+      
     } catch (err) {
       const axiosError = err as any;
       

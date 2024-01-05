@@ -26,6 +26,7 @@ describe('When Login', () => {
       .send({ email: 'user@example.com', password: '12345678' });
 
     expect(response.statusCode).toBe(200);
+    expect(response.body.user).toBeDefined();
     expect(response.body.token).toBeDefined();
   });
 

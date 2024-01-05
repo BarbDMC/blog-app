@@ -27,7 +27,21 @@ export const userSignUp = async (req: Request, res: Response) => {
     const newUser = await createUser(req.body, prismaClient, bcrypt);
 
     const token = generateToken(newUser.email);
-    res.status(201).json({message: 'User created.', token});
+
+    res.status(201).json(
+      {
+        message: 'User created.', 
+        token,
+        user: {
+          name: newUser.name,
+          middleName: newUser.middleName,
+          surname: newUser.surname,
+          secondSurname: newUser.secondSurname,
+          email: newUser.email,
+          birthday: newUser.birthday,
+        }
+      }
+    );
 
   } catch (error) {
     res.status(500).send('Something went wrong.');

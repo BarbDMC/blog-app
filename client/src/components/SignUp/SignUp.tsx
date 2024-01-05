@@ -3,6 +3,7 @@
 import './styles.css';
 import React, { useState } from 'react';
 import { useSignUp } from 'src/hooks/useSignUp';
+import { useNavigate } from 'react-router-dom';
 
 export const SignUp: React.FC = () => {
   const [name, setName] = useState<string>("");
@@ -13,6 +14,7 @@ export const SignUp: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const { signUp, error, loading } = useSignUp();
+  const navigate = useNavigate();
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -56,7 +58,11 @@ export const SignUp: React.FC = () => {
       password: password,
     }
 
-    await signUp(newUser);
+    const createdUser = await signUp(newUser);
+
+    if (createdUser) {
+      navigate('/profile', { state: createdUser });
+    }
   }
 
   return (
@@ -94,7 +100,7 @@ export const SignUp: React.FC = () => {
 
                       <div>
                           <label htmlFor="birthday" className="signup-form-label">Your Birth Day</label>
-                          <input type="date" name="email" id="email" className="signup-form-input" placeholder="name@company.com" required={true} onChange={handleBirthdayChange} />
+                          <input type="date" name="email" id="email" className="signup-form-input" required={true} onChange={handleBirthdayChange} />
                       </div>
 
                       <div>

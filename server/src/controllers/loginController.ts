@@ -38,7 +38,7 @@ export const userLogin = async (req: Request, res: Response) => {
         surname: user.surname,
         secondSurname: user.secondSurname,
         email: user.email,
-        birthday: user.birthday,
+        birthday: user.birthday
       }
     }
   );
