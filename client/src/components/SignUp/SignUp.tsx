@@ -3,7 +3,7 @@
 import './styles.css';
 import React, { useState } from 'react';
 import { useSignUp } from 'src/hooks/useSignUp';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export const SignUp: React.FC = () => {
   const [name, setName] = useState<string>("");
@@ -117,7 +117,7 @@ export const SignUp: React.FC = () => {
                       {error && <p className="signup-error-message">{error}</p>}
 
                       <p className="signup-login-message">
-                          Already have an account? <a href="#" className="signup-login-message__link">Login here</a>
+                          Already have an account? <Link to="/login" className="signup-login-message__link">Login here</Link>
                       </p>
                   </form>
               </div>
