@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { useLogin } from "src/hooks/useLogin";
 
-export const Login: React.FC = () => {
+export const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");

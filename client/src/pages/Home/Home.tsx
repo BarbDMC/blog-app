@@ -3,7 +3,7 @@ import './styles.css';
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
     <section className="home-container-background">
       <div className="home-container-content">
