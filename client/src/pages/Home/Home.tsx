@@ -13,8 +13,7 @@ const Home = () => {
           </h1>
 
           <p className="home-container-content__description">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus
-            numquam ea! 
+            Descubre nuestra Blog App: crea tu perfil, comparte pensamientos breves con microposts y conecta con otros.
           </p>
 
           <div className="home-container-button">
@@ -34,7 +33,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
      
     </section>
   );
