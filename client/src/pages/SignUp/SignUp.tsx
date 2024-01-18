@@ -59,6 +59,7 @@ export const SignUp: React.FC = () => {
     }
 
     const createdUser = await signUp(newUser);
+    console.log("🚀 ~ handleSubmit ~ createdUser:", createdUser)
 
     if (createdUser) {
       navigate('/profile', { state: createdUser });
