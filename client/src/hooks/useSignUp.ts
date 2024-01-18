@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import Axios from 'axios';
-import { userSignUpInterface } from 'src/interfaces/userInterfaces';
+import { userSignUpInterface } from '../interfaces/userInterfaces';
 
 export const useSignUp = () => {
   const [loading, setLoading] = useState<boolean>(false);

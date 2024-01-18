@@ -2,7 +2,7 @@
 
 import './styles.css';
 import React, { useState } from 'react';
-import { useSignUp } from 'src/hooks/useSignUp';
+import { useSignUp } from '../../hooks/useSignUp';
 import { useNavigate, Link } from 'react-router-dom';
 
 export const SignUp: React.FC = () => {

@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import App from '../src/pages/App/App';
 import { render, screen } from '@testing-library/react';
 
