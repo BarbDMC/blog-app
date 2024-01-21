@@ -62,7 +62,7 @@
     "testEnvironment": "node",
     "testTimeout": 20000,
     "moduleNameMapper": {
-      "\\.(css|scss)$": "<rootDir>/client/__mocks__/styleMock.ts"
+      "\\.(css|scss)$": "<rootDir>/client/specs/__mocks__/styleMock.ts"
     }
   }
 }
