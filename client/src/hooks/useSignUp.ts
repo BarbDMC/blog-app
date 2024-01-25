@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 import { userSignUpInterface } from '../interfaces/userInterfaces';
 
 export const useSignUp = () => {
@@ -12,12 +12,11 @@ export const useSignUp = () => {
     setError(null);
 
     try {
-      const response = await Axios.post('http://localhost:3000/v1/signup', user);
+      const response = await axios.post('http://localhost:3000/v1/signup', user);
 
       localStorage.setItem('token', response.data.token);
       setLoading(false);
       
-      console.log("🚀 ~ file: useSignUp.ts:34 ~ signUp ~ response:", response)
       return response.data.user;
       
     } catch (err) {
