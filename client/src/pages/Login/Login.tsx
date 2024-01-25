@@ -8,7 +8,7 @@ export const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const { login, error, loading } = useLogin();
+  const { login, error, isLoading } = useLogin();
 
   const handleEMailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -45,7 +45,7 @@ export const Login = () => {
                         <label htmlFor="password" className="login-form-label">Password</label>
                         <input type="password" name="password" data-testid="password" className="login-form-input" placeholder="••••••••" required={true} onChange={handlePasswordChange} />
                     </div>
-                    <button type="submit" className="login-form-button" disabled={loading} >Sign in</button>
+                    <button type="submit" className="login-form-button" disabled={isLoading} >Sign in</button>
                     {error && <p className="login-error">{error}</p>}
                     <p className="login-signup-message">
                         Don’t have an account yet? <Link to="/signup" className="login-signup-message__link">Sign up</Link>

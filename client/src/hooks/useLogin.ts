@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useState } from 'react';
 
 export const useLogin = () => {
-  const [loading, setLoading] = useState<boolean>(false);
+  const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const login = async (email: string, password: string) => {
@@ -35,5 +35,5 @@ export const useLogin = () => {
     }
   }
 
-  return { login, loading, error };
+  return { login, isLoading, error };
 }

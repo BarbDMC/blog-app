@@ -13,7 +13,7 @@ export const SignUp: React.FC = () => {
   const [birthday, setBirthday] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const { signUp, error, loading } = useSignUp();
+  const { signUp, error, isLoading } = useSignUp();
   const navigate = useNavigate();
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -112,7 +112,7 @@ export const SignUp: React.FC = () => {
                           <input type="password" name="password" data-testid="password" placeholder="••••••••" className="signup-form-input" required={true} onChange={handlePasswordChange} />
                       </div>
 
-                      <button type="submit" className="signup-form-button" disabled={loading}>Create an account</button>
+                      <button type="submit" className="signup-form-button" disabled={isLoading}>Create an account</button>
 
                       {error && <p className="signup-error-message">{error}</p>}
 

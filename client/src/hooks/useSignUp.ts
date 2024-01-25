@@ -4,7 +4,7 @@ import Axios from 'axios';
 import { userSignUpInterface } from '../interfaces/userInterfaces';
 
 export const useSignUp = () => {
-  const [loading, setLoading] = useState<boolean>(false);
+  const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const signUp = async (user: userSignUpInterface) => {
@@ -34,5 +34,5 @@ export const useSignUp = () => {
     }
   }
 
-  return { signUp, loading, error };
+  return { signUp, isLoading, error };
 }

@@ -4,7 +4,6 @@
 
 import App from '../src/pages/App/App';
 import userEvent from '@testing-library/user-event';
-import { BrowserRouter } from "react-router-dom";
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 
 const response = {
@@ -20,7 +19,7 @@ const response = {
 jest.mock('../src/hooks/useSignUp', () => ({
   useSignUp: () => ({
     signUp: jest.fn().mockResolvedValue(response),
-    loading: false,
+    isLoading: false,
     error: null,
   }),
 }));
@@ -28,7 +27,7 @@ jest.mock('../src/hooks/useSignUp', () => ({
 jest.mock('../src/hooks/useLogin', () => ({
   useLogin: () => ({
     login: jest.fn().mockResolvedValue(response),
-    loading: false,
+    isLoading: false,
     error: null,
   }),
 }));
@@ -44,11 +43,11 @@ describe('App', () => {
   
   describe('When SignUp', () => {
     beforeEach(() => {
-      render(<BrowserRouter><App /></BrowserRouter>);
+      render(<App />);
       mockNavigate.mockClear();
     });
 
-    test('should fail if any mandatory field is missing in form submission', async () => {
+    test('fail if any mandatory field is missing in form submission', async () => {
       await act(async () => {
         userEvent.click(screen.getByRole('link', { name: /Sign up/i }));
       });
@@ -67,7 +66,7 @@ describe('App', () => {
       expect(mockNavigate).not.toHaveBeenCalled();
     });
 
-    test('should go to signup page and signup successfully', async () => {
+    test('going to signup page and signup successfully', async () => {
       expect(window.location.pathname).toBe('/signup');
       screen.getByRole('heading', { name: /Create an account/i});
   
@@ -89,11 +88,11 @@ describe('App', () => {
   
   describe('When Login', () => {
     beforeEach(() => {
-      render(<BrowserRouter><App /></BrowserRouter>);
+      render(<App />);
       mockNavigate.mockClear();
     });
 
-    test('should fail if email or password field is missing in form submission', async () => {
+    test('fail if email or password field is missing in form submission', async () => {
       await act(async () => {
         userEvent.click(screen.getByRole('link', { name: /Login/i }));
       });
@@ -109,7 +108,7 @@ describe('App', () => {
     });
 
   
-    test('should go to login page and login successfully', async () => {
+    test('going to login page and login successfully', async () => {
       expect(window.location.pathname).toBe('/login');
       screen.getByText('Sign in to your account');
   
