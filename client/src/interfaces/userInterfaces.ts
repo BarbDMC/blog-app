@@ -1,11 +1,11 @@
 
 export interface userDataInterface {
   name: string,
-  middleName?: string,
   surname:  string,
-  secondSurname?:  string,
   birthday: string
   email: string,
+  middleName?: string,
+  secondSurname?:  string,
 };
 
 export interface userSignUpInterface extends userDataInterface {

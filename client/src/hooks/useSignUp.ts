@@ -31,7 +31,7 @@ export const useSignUp = () => {
       }
       
     }
-  }
+  };
 
   return { signUp, isLoading, error };
-}
+};
