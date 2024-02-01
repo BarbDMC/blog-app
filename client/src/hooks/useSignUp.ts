@@ -1,13 +1,13 @@
 
 import { useState } from 'react';
 import axios from 'axios';
-import { userSignUpInterface } from '../interfaces/userInterfaces';
+import { UserSignUpInterface } from '../interfaces/userInterfaces';
 
 export const useSignUp = () => {
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const signUp = async (user: userSignUpInterface) => {
+  const signUp = async (user: UserSignUpInterface) => {
     setLoading(true);
     setError(null);
 

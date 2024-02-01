@@ -1,7 +1,7 @@
 
 import { User } from '@prisma/client';
 import { user } from '../fixtures/users';
-import { bcryptInterface } from '../../src/interfaces/bcryptInterface';
+import { BcryptInterface } from '../../src/interfaces/bcryptInterface';
 import { PrismaClientInterface } from '../../src/interfaces/prismaInterface';
 
 
@@ -15,7 +15,7 @@ export const mockPrismaClient: PrismaClientInterface = {
   }
 };
 
-export const mockBcrypt: bcryptInterface = {
+export const mockBcrypt: BcryptInterface = {
   compare: async (password): Promise<boolean> => {
     if (password === '1234567') {
       return Promise.resolve(true);

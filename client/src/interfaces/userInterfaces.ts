@@ -1,5 +1,5 @@
 
-export interface userDataInterface {
+export interface UserDataInterface {
   name: string,
   surname:  string,
   birthday: string
@@ -8,6 +8,6 @@ export interface userDataInterface {
   secondSurname?:  string,
 };
 
-export interface userSignUpInterface extends userDataInterface {
+export interface UserSignUpInterface extends UserDataInterface {
   password: string,
 };

@@ -1,14 +1,14 @@
 
 import jwt from 'jsonwebtoken';
 import { User } from "@prisma/client";
-import { bcryptInterface } from '../interfaces/bcryptInterface';
+import { BcryptInterface } from '../interfaces/bcryptInterface';
 import { PrismaClientInterface } from '../interfaces/prismaInterface';
 
 export const checkUser = async (email: string, prisma: PrismaClientInterface): Promise<User | null> => {
   return await prisma.user.findUnique({ where: { email } });
 };
 
-export const checkPassword = async (password: string, hashedPassword: string, bcrypt: bcryptInterface): Promise<boolean> => {
+export const checkPassword = async (password: string, hashedPassword: string, bcrypt: BcryptInterface): Promise<boolean> => {
   return await bcrypt.compare(password, hashedPassword);
 };
 

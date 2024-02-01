@@ -1,6 +1,6 @@
 
 import { validateUser } from '../src/validators/usersValidator';
-import { userInterface } from '../src/interfaces/userInterface';
+import { UserInterface } from '../src/interfaces/userInterface';
 
 describe('validateUser', () => {
   const user = {
@@ -20,7 +20,7 @@ describe('validateUser', () => {
     const wrongUser = {
       email: 'test@example.com',
       password: 'strongpassword',
-    } as userInterface;
+    } as UserInterface;
 
     const result = validateUser(wrongUser);
     expect(result.valid).toBe(false);

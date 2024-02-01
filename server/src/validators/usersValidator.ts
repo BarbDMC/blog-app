@@ -1,5 +1,5 @@
 
-import { userInterface } from '../interfaces/userInterface';
+import { UserInterface } from '../interfaces/userInterface';
 import { Validator } from 'jsonschema';
 
 const userSchema = {
@@ -27,13 +27,13 @@ const userLoginSchema = {
   additionalProperties: false
 };
 
-export const validateUser = (user: userInterface) => {
+export const validateUser = (user: UserInterface) => {
   const validator = new Validator();
   const result = validator.validate(user, userSchema);
   return result;
 };
 
-export const validateUserLogin = (user: userInterface) => {
+export const validateUserLogin = (user: UserInterface) => {
   const validator = new Validator();
   const result = validator.validate(user, userLoginSchema);
   return result;
