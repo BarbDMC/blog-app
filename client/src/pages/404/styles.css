@@ -1,0 +1,19 @@
+.container-background {
+  @apply bg-gray-50 dark:bg-gray-900;
+}
+
+.container-content {
+  @apply mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center ;
+}
+
+.container-content--center {
+  @apply mx-auto max-w-xl text-center;
+}
+
+.container-content__title {
+  @apply text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-white;
+}
+
+.container-content__description {
+  @apply mt-6 text-lg leading-8 text-gray-600 dark:text-white;
+}
