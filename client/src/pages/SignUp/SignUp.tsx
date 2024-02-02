@@ -38,7 +38,7 @@ export const SignUp: React.FC = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { signUp } = useSignUp();
   const navigate = useNavigate();
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm<UserSignUpInterface>();
 
   const convertDate = (date: string) => {
     return new Date(date).toISOString();
