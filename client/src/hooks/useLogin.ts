@@ -1,6 +1,14 @@
 
-import axios from 'axios';
 import { useState } from 'react';
+import axios, { AxiosError } from 'axios';
+
+interface Error {
+  message: string;
+}
+
+interface AxiosErrorData {
+  errors: Error[];
+}
 
 export const useLogin = () => {
   const [isLoading, setLoading] = useState(false);
@@ -22,18 +30,22 @@ export const useLogin = () => {
       return response.data.user;
 
     } catch (err) {
-      const axiosError = err as any;
+      const axiosError = err as AxiosError;
       
       if (axiosError.response) {
-        const errorData = axiosError.response.data.errors as any[];
+        const errorData = (axiosError.response.data as AxiosErrorData).errors;
         const errorMessage = errorData[0].message as string;
 
         setError(errorMessage);
-        setLoading(false);
+      } else {
+        setError('An unexpected error occurred. Please try again later.');
       }
-      
+
     }
-  }
+    finally {
+      setLoading(false);
+    }
+  };
 
   return { login, isLoading, error };
-}
+};
