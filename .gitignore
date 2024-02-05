@@ -3,3 +3,4 @@ dist
 coverage
 prisma/migrations
 .env
+.vscode

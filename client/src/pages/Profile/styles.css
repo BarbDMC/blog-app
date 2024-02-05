@@ -1,0 +1,32 @@
+
+.profile-background {
+  @apply bg-gray-50 flex flex-col items-center justify-center mx-auto px-6 md:h-screen dark:bg-gray-900;
+}
+
+.profile-container {
+  @apply bg-white shadow rounded-lg px-60 py-12 dark:bg-gray-800 dark:border-gray-700;
+}
+
+.profile-image-container {
+  @apply w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500;
+}
+
+.profile-info-container {
+  @apply mt-32 text-center;
+}
+
+.profile-info-container__name {
+  @apply mb-8 text-4xl font-medium text-gray-700 dark:text-white;
+}
+
+.profile-info-container__data {
+  @apply mt-3 text-gray-500 dark:text-white;
+}
+
+.microposts-list-container {
+  @apply mt-12 flex flex-col justify-center border-b;
+}
+
+.microposts-list-container__title {
+  @apply text-4xl font-medium text-gray-700 text-center dark:text-white;
+}
